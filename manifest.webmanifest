@@ -1,0 +1,29 @@
+{
+ "name": "Thomä & Balthes: Our Roseln Family",
+ "short_name": "Thomä & Balthes",
+ "description": "The Balthes and Thomä families of Roseln, from the church books and Weiss.",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "any",
+ "background_color": "#faf7f1",
+ "theme_color": "#1f4b4a",
+ "icons": [
+  {
+   "src": "icons/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icons/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "icons/icon-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}
