@@ -1,10 +1,10 @@
 // Offline support for Thomä & Balthes (index.html) and its map (map.html).
 // Bump VERSION whenever you upload a new build so phones pick up the change.
-const VERSION = 'thome-balthes-v2';
+const VERSION = 'thome-balthes-v3';
 const CORE = ['./', 'index.html', 'familien.html', 'map.html', 'karte.html', 'data/de_karte.json', 'arms.svg', 'manifest-de.webmanifest', 'data/records_de.json', 'data/de.json', 'vorfahren.html', 'manifest.webmanifest', 'manifest-map.webmanifest', 'roseln1869.png',
   'data/people.json', 'data/records.json',
   'sat_village.jpg', 'sat_valley.jpg', 'sat_mures.jpg', 'sat_ontario.jpg',
-  'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
+  'icons/icon-192.png', 'reunion.js', 'fonts/CrimsonPro-Regular.ttf', 'fonts/CrimsonPro-Italic.ttf', 'fonts/CrimsonPro-Bold.ttf', 'fonts/InstrumentSans-Regular.ttf', 'fonts/InstrumentSans-Bold.ttf', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
   'fonts/ebgaramond-Regular.woff', 'fonts/ebgaramond-Italic.woff', 'fonts/ebgaramond-Medium.woff', 'fonts/ebgaramond-SemiBold.woff', 'fonts/ebgaramond-SemiBoldItalic.woff',
   'fonts/inter-Regular.woff', 'fonts/inter-Medium.woff', 'fonts/inter-SemiBold.woff', 'fonts/inter-Bold.woff',
   'photos/anna_hartel_1859.jpg', 'photos/michael_thoma_1838.jpg', 'photos/johann_balthes_1884.jpg',

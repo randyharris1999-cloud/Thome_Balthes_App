@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Thomä & Balthes">
-<meta name="theme-color" content="#f6f2e9">
+<meta name="theme-color" content="#1f2b3b">
 <script>
 /* language: the splash screen remembers English or German (localStorage), or for this visit only (sessionStorage) */
 window.RLANG = {
@@ -522,32 +522,189 @@ body{background:var(--paper)}
 .galwin:after{content:"";position:absolute;left:1px;right:1px;bottom:1px;height:34px;border-radius:0 0 12px 12px;background:linear-gradient(rgba(251,248,241,0),#fbf8f1);pointer-events:none}
 .ghint{display:block;font:600 11.5px var(--ui);color:var(--accent2);margin:6px 2px 0;text-align:right}
 @media (min-width:1000px){.hero{margin:0 -16px;padding-top:26px}}
+
+/* ===== Reunion theme (Thomä & Balthes Reunion, 2026-10): evening slate, Roseln limestone, Transylvanian gold ===== */
+@font-face{font-family:'Crimson Pro';font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/CrimsonPro-Regular.ttf) format('truetype')}
+@font-face{font-family:'Crimson Pro';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/CrimsonPro-Bold.ttf) format('truetype')}
+@font-face{font-family:'Crimson Pro';font-style:italic;font-weight:400 700;font-display:swap;src:url(fonts/CrimsonPro-Italic.ttf) format('truetype')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400 500;font-display:swap;src:url(fonts/InstrumentSans-Regular.ttf) format('truetype')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:600 700;font-display:swap;src:url(fonts/InstrumentSans-Bold.ttf) format('truetype')}
+:root{--rx-night:#1f2b3b;--rx-night2:#2a3a50;--rx-stone:#ebe6da;--rx-stone2:#dcd5c4;
+  --paper:#f1ede3;--card:#fbf9f4;--ink:#1f242b;--soft:#5f646b;--faint:#8a8780;--line:#dcd5c4;--line2:#e8e2d5;
+  --accent:#1f2b3b;--accent2:#2d5c9c;--accent-soft:rgba(45,92,156,.09);--red:#9b2c26;--gold:#c79a3c;
+  --t-ch:#1f2b3b;--b-ch:#e2e6ec;
+  --serif:'Crimson Pro',Georgia,'Times New Roman',serif;--ui:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.lnk{text-decoration-color:rgba(45,92,156,.35)}
+/* page headers: evening sky with a band of stitched roosters below */
+.hero{background:radial-gradient(900px 380px at 75% 0%,rgba(52,72,99,.6),transparent),linear-gradient(var(--rx-night),var(--rx-night2))}
+.hero .church{opacity:.13}
+.hero .kick{color:var(--gold)}
+.hero h1{font-weight:400;font-size:36px;letter-spacing:-.01em}
+.stitch{height:30px;background:var(--rx-stone) var(--rx-band) repeat-x center/auto 22px;border:0;border-bottom:1px solid var(--rx-stone2)}
+.lbl{color:var(--red)}
+.lbl:after{background:linear-gradient(90deg,rgba(199,154,60,.6),rgba(199,154,60,0))}
+.chip[aria-pressed=true],.btn.pri,.tb-ico{background:var(--rx-night);border-color:var(--rx-night)}
+.tb-ico{box-shadow:0 0 0 2px var(--card),0 0 0 3px var(--gold)}
+.tb-tile:hover{border-color:var(--gold)}
+.tb-fact{border-top-color:var(--gold)}
+#tabbar a[aria-current=page]:before{background:var(--gold)}
+.search{border-color:var(--rx-stone2)}
+.search svg{stroke:var(--rx-night)}
+.faces .av{box-shadow:0 0 0 1.5px var(--gold)}
+.row .nm,.surn button,.tb-brrow b,.tb-tile b{font-weight:600}
+#loading{background:var(--rx-night);color:var(--rx-stone)}
+#loading .eyebrow{color:var(--gold)}
+#loading .sub{color:#c9cfd8}
+#loading .bar{background:rgba(255,255,255,.15)}
+#loading .bar i{background:var(--gold)}
+
+/* the reunion hero ("Pillow end": welcome screen and Family page) */
+.rx-weave,.rx-hero{background-color:#f4f0e6;background-image:repeating-linear-gradient(0deg,transparent 0 4px,rgba(120,100,60,.05) 4px 5px),repeating-linear-gradient(90deg,transparent 0 4px,rgba(120,100,60,.05) 4px 5px)}
+.rx-hero{position:relative;text-align:center;padding:0 0 28px;border-bottom:1px solid var(--rx-stone2);color:var(--ink)}
+.rx-sb{background-repeat:repeat-x;background-position:center top}
+.rx-sb1{height:276px;background-image:var(--rx-p26)}
+.rx-sb2{height:68px;background-image:var(--rx-p25);margin:4px 0 0}
+.rx-in{max-width:660px;margin:0 auto;padding:0 22px}
+.rx-kick{font:italic 400 19px var(--serif);color:var(--red);margin:18px 0 2px}
+.rx-hero h1,#splash.rx .rx-hero h1{font:400 52px/1.02 var(--serif);letter-spacing:-.01em;color:var(--ink);margin:0 0 10px;max-width:none}
+.rx-sub{font:italic 400 21px/1.25 var(--serif);color:var(--accent2);margin:0 0 12px}
+.rx-lede{font:400 16px/1.6 var(--ui);color:#3a3f46;margin:18px 0 20px;text-align:left}
+.rx-acts{display:flex;flex-direction:column;gap:12px;align-items:stretch;max-width:420px;margin:0 auto}
+.rx-cta{display:block;background:var(--rx-night);color:#fff;padding:14px 22px;border-radius:3px;text-decoration:none;font:700 15px var(--ui)}
+.rx-cta2{color:var(--accent2);font:600 15px var(--ui)}
+.wrap .rx-hero{margin:0 -16px}
+.rx-band{height:34px;background:var(--rx-stone) var(--rx-band) repeat-x center/auto 22px;border-bottom:1px solid var(--rx-stone2)}
+@media (max-width:760px){.rx-sb1{height:220px;background-size:auto 220px}.rx-hero h1,.wrap .rx-hero h1,#splash.rx .rx-hero h1{font-size:42px}.rx-sub{font-size:19px}}
+@media (min-width:1000px){.wrap .rx-hero h1{font-size:46px}.wrap .rx-sb1{height:200px;background-size:auto 200px}}
+
+/* Village: the 1869 plan with cross-stitched houses */
+.pv-d:after{width:12px;height:12px;margin:-6px 0 0 -6px;border:0;border-radius:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1.6 1.6L8.4 8.4M8.4 1.6L1.6 8.4' stroke='%232d5c9c' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 0 1.5px #f4f0e6) drop-shadow(0 0 1px #f4f0e6)}
+.pv-d.fam:after{width:18px;height:18px;margin:-9px 0 0 -9px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1.6 1.6L8.4 8.4M8.4 1.6L1.6 8.4' stroke='%23a8322b' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E")}
+.pv-d.sel:after{width:32px;height:32px;margin:-16px 0 0 -16px;border:0;box-shadow:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1.6 1.6L8.4 8.4M8.4 1.6L1.6 8.4' stroke='%23a8322b' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.pv-pin{position:absolute;transform:scale(var(--k,1));transform-origin:0 100%;margin:-74px 0 0 14px;background:#fff;padding:3px 3px 2px;border:1.5px solid var(--red);box-shadow:0 2px 8px rgba(40,30,20,.3);pointer-events:none;text-align:center}
+.pv-pin img{width:64px;height:46px;object-fit:cover;display:block}
+.pv-pin b{display:block;font:700 11px var(--ui);color:var(--red);padding-top:1px}
+.rx-tre{height:16px;margin:0 -16px 10px;background:var(--rx-tre) repeat-x center/auto 14px}
+.rx-leg{flex-direction:column;align-items:stretch;gap:8px;left:10px;right:10px;bottom:10px;padding:10px 12px;border-radius:14px;background:rgba(244,240,230,.97);box-shadow:0 -2px 14px rgba(40,30,20,.14)}
+.rx-leg h3{font:italic 400 17px var(--serif);color:var(--red);margin:0}
+.rx-chips{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}
+.rx-chips button{flex:none;display:flex;gap:6px;align-items:center;border:1px solid var(--rx-stone2);background:#fff;border-radius:999px;padding:5px 11px 5px 8px;font:600 12.5px var(--ui);color:var(--ink);cursor:pointer}
+.rx-chips button i{font-style:normal;color:var(--red);width:auto;height:auto;background:none;border:0;border-radius:0;display:inline}
+.rx-chips button:before,.rx-key i{content:"";width:11px;height:11px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1.6 1.6L8.4 8.4M8.4 1.6L1.6 8.4' stroke='%23a8322b' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;display:inline-block}
+.rx-key{display:flex;gap:14px;font-size:11.5px;color:var(--soft)}
+.rx-key span{display:flex;gap:5px;align-items:center}
+.rx-key i.b{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1.6 1.6L8.4 8.4M8.4 1.6L1.6 8.4' stroke='%232d5c9c' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E")}
+.pvsheet{background:#f4f0e6}
+.rx-strip{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:8px -14px 4px;padding:0 14px}
+.rx-strip button{flex:none;width:210px;text-align:left;cursor:pointer;background:none;border:0;padding:0}
+.rx-strip img{display:block;width:210px;height:140px;object-fit:cover;border-radius:4px}
+.rx-strip span{display:block;font:italic 400 12.5px/1.3 var(--serif);color:var(--soft);margin-top:3px}
+.rx-fams{font-size:13.5px;margin:6px 0 0;border-top:1px solid var(--rx-stone2);padding-top:6px}
+.rx-fams div{display:flex;gap:10px;padding:2px 0}.rx-fams b{width:78px;flex:none;font-weight:600}
+
+/* House page: photo header, then and now, photographs */
+.rx-hhero{position:relative;height:340px;margin:0 -16px;background:#556 center/cover no-repeat;color:#fff}
+.rx-hhero:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,28,40,.3),rgba(20,28,40,0) 35%,rgba(20,28,40,.75))}
+.rx-hhero .rx-bk{position:absolute;left:14px;top:calc(12px + env(safe-area-inset-top,0px));z-index:2;background:rgba(244,240,230,.94);color:var(--accent2);font:600 14px var(--ui);padding:6px 12px;border-radius:999px;text-decoration:none}
+.rx-hhero .t{position:absolute;left:18px;right:18px;bottom:14px;z-index:2}
+.rx-hhero .t p{font:italic 400 17px var(--serif);color:#f3d9a0;margin:0}
+.rx-hhero h1{color:#fff;font:400 40px/1.05 var(--serif);margin:0 0 4px}
+.rx-hhero small{font:italic 400 13px/1.3 var(--serif);opacity:.9}
+.rx-hhero+.rx-tre{margin-bottom:12px}
+.rx-tn{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rx-gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.rx-fig{display:block;text-align:left;background:none;border:0;padding:0;cursor:pointer;color:inherit}
+.rx-fig img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.rx-tn .rx-fig img{aspect-ratio:4/3.2}
+.rx-fig span{display:block;font:italic 400 13px/1.3 var(--serif);color:var(--soft);margin-top:4px}
+.rx-fig span i{display:block;font:600 11.5px var(--ui);font-style:normal;color:var(--red);margin-top:1px}
+/* the anniversary film on Johann's and Sofia's pages */
+.rx-vid{display:block;width:100%;max-width:340px;border-radius:8px;margin-top:8px;background:#222}
+.rx-vcap{font:italic 400 13px var(--serif);color:var(--soft);margin:4px 0 0}
+
+/* welcome screen */
+#splash.rx{display:block;padding:0;text-align:left;background:var(--rx-stone)}
+#splash.rx[hidden]{display:none}
+#splash.rx .rx-nav{display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) 18px 12px;background:var(--rx-night);font:400 20px var(--serif);color:var(--rx-stone)}
+#splash.rx .rx-nav img{height:26px;vertical-align:-6px;margin-right:8px}
+#splash.rx .rx-nav a{font:500 14px var(--ui);color:#c9cfd8}
+.rx-pick{max-width:1120px;margin:0 auto;padding:30px 24px 50px;color:var(--ink)}
+.rx-facts{display:flex;flex-wrap:wrap;margin:0 0 40px;border-top:1px solid var(--rx-stone2);border-bottom:1px solid var(--rx-stone2);max-width:640px}
+.rx-facts div{padding:14px 26px 14px 0;margin-right:26px;border-right:1px solid var(--rx-stone2)}
+.rx-facts div:last-child{border:0;margin-right:0}
+.rx-facts b{font:400 38px/1 var(--serif);display:block;color:var(--red)}
+.rx-facts span{font-size:13.5px;color:var(--soft)}
+.rx-pick h2{font:400 40px/1.1 var(--serif);margin:0 0 4px}
+.rx-pick .rx-q{color:var(--soft);margin:0 0 24px;font-size:15px}
+.rx-cols{display:grid;grid-template-columns:1.25fr 1fr;gap:52px}
+.rx-grp{margin-bottom:30px}
+.rx-grp h3{font:italic 400 21px var(--serif);color:var(--red);margin:0 0 4px}
+.rx-row{display:grid;grid-template-columns:1fr 110px 36px;align-items:center;gap:14px;width:100%;padding:11px 4px;border:0;border-bottom:1px solid var(--rx-stone2);background:none;color:inherit;text-align:left;font:inherit;cursor:pointer}
+.rx-row:hover{background:#f4f0e6}
+.rx-row b{font:600 16px var(--ui)}
+.rx-row small{font-size:13px;color:var(--soft);margin-left:8px}
+.rx-bar{height:6px;background:var(--rx-stone2);border-radius:3px;overflow:hidden}
+.rx-bar i{display:block;height:100%;background:var(--accent2)}
+.rx-roo{height:28px;margin:18px 0 0;background:var(--rx-band) repeat-x center/auto 18px}
+@media (min-width:761px){.rx-roo{display:none}}
+.rx-n{font:400 22px var(--serif);text-align:right}
+.rx-row.none .rx-n,.rx-row.none .rx-bar{opacity:.45}
+.rx-note{font-size:13px;color:var(--soft);max-width:640px}
+#splash.rx .tb-skip{display:inline-block;margin:6px 0 0;color:var(--accent2);text-decoration:underline;font:600 14px var(--ui);cursor:pointer;background:none;border:0}
+#splash.rx .foot{max-width:1120px;margin:0 auto;padding:0 24px 30px;font:400 12px/1.5 var(--ui);color:var(--faint);text-align:left}
+@media (max-width:760px){.rx-facts div{padding-right:14px;margin-right:14px}.rx-facts b{font-size:30px}.rx-cols{grid-template-columns:1fr;gap:0}.rx-pick h2{font-size:32px}.rx-row{grid-template-columns:1fr 70px 30px}}
+
+/* branch picker inside the app shows the size of each branch */
+.tb-br small i{font-style:normal;color:var(--red);font-weight:600}
+/* descendants */
+.rx-dsum{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0 6px;font-size:13.5px;color:var(--soft)}
+.rx-dsum b{font:400 22px var(--serif);color:var(--red);margin-right:4px}
+.rx-tree,.rx-tree ul{list-style:none;margin:0;padding:0}
+.rx-tree ul{margin-left:13px;padding-left:15px;border-left:2px solid var(--rx-stone2)}
+.rx-tree li{margin:0;padding:5px 0 3px;position:relative}
+.rx-tree ul>li:before{content:"";position:absolute;left:-15px;top:17px;width:11px;border-top:2px solid var(--rx-stone2)}
+.rx-p{font:600 15.5px var(--serif)}
+.rx-tree .yr{font:500 12.5px var(--ui);color:var(--soft);margin-left:5px;white-space:nowrap}
+.rx-sp{display:block;font-size:12.5px;color:var(--soft);margin-top:1px}
+.rx-sp a{color:var(--soft)}
+.rx-g{display:inline-block;font:700 10px var(--ui);letter-spacing:.06em;color:var(--gold);border:1px solid rgba(199,154,60,.5);border-radius:999px;padding:0 6px;margin-left:6px;vertical-align:2px}
+.rx-tree details>summary{list-style:none;cursor:pointer}
+.rx-tree details>summary::-webkit-details-marker{display:none}
+.rx-tree details>summary .rx-more{font:600 12px var(--ui);color:var(--accent2);margin-left:6px}
+.rx-tree details[open]>summary .rx-more{display:none}
+.rx-root{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 10px;margin-top:14px}
+.rx-root>h3{font:400 22px var(--serif);margin:0 0 6px}
+.rx-live{display:inline-block;font:600 10.5px var(--ui);color:#2f6b3b;background:#e4f1e6;border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.rx-row2{grid-template-columns:1fr 20px}.rx-row2 .rx-n{color:var(--soft)}
 </style>
+<script>window.RX_TEXT = {"en": {"h1": "Thomä &amp; Balthes", "sub": "Our Roseln family", "lede": "For centuries our Transylvanian Saxon ancestors lived in the shadow of the fortified church in Roseln. Johann Balthes, Sofia Thome and her brother Michael brought that heritage to Ontario. This is the story of the family they came from.", "a2": "The family story"}, "de": {"h1": "Thomä &amp; Balthes", "sub": "Unsere Roselner Familie", "lede": "Jahrhundertelang lebten unsere siebenbürgisch-sächsischen Vorfahren im Schatten der Kirchenburg von Roseln. Johann Balthes, Sofia Thome und ihr Bruder Michael brachten dieses Erbe nach Ontario. Dies ist die Geschichte der Familie, aus der sie kamen.", "a2": "Die Familiengeschichte"}};</script>
+<script src="reunion.js"></script>
 </head>
 <body data-route="find">
-<!--SPLASH--><div id="splash" role="dialog" aria-label="Welcome" hidden>
-  <img class="arms" src="arms.svg" alt="Coat of arms of Transylvania">
-  <div class="kick">Roseln · Transylvania</div>
-  <h1>Thomä &amp; Balthes</h1>
-  <p class="s1">Our Roseln Family</p>
-  <div class="rule"></div>
-  <p class="ask">Which of these children do you come from?</p>
-  <div class="tb-pg"><div class="lbl">Children of Johann Balthes &amp; Sofia Thome</div><div class="tb-brs"><button type="button" class="tb-br" data-pick-br="0201.C1.2" style="--c:#9a3b2e"><span><b>Sofia Balthes</b><small>b. 1911</small></span></button><button type="button" class="tb-br" data-pick-br="0201.C1.3" style="--c:#b5652a"><span><b>Johann Balthes</b><small>b. 1912</small></span></button><button type="button" class="tb-br" data-pick-br="0201.C1.4" style="--c:#a8862b"><span><b>Anna Balthes</b><small>b. 1914</small></span></button><button type="button" class="tb-br" data-pick-br="0201.C1.5" style="--c:#6f7d2c"><span><b>Katharina Balthes</b><small>b. 1917</small></span></button><button type="button" class="tb-br" data-pick-br="0201.C1.6" style="--c:#8a4f7d"><span><b>Maria Balthes</b><small>b. 1919</small></span></button><button type="button" class="tb-br" data-pick-br="0201.C1.7" style="--c:#c0504d"><span><b>Hilda Balthes</b><small>b. 1923</small></span></button><button type="button" class="tb-br" data-pick-br="0201.C1.8" style="--c:#7a5c3e"><span><b>Mathilde Balthes</b><small>the youngest, born after 1923</small></span></button></div></div>
-<div class="tb-pg"><div class="lbl">Children of Michael Thome</div><div class="tb-brs"><button type="button" class="tb-br" data-pick-br="2822.C1.1" style="--c:#1f6f8b"><span><b>Michael Thome</b><small>b. 1919</small></span></button><button type="button" class="tb-br" data-pick-br="2822.C1.2" style="--c:#2e8b74"><span><b>Martin Thome</b><small>b. 1921</small></span></button><button type="button" class="tb-br" data-pick-br="2822.C1.3" style="--c:#3b5ba5"><span><b>Heinrich Thome</b><small>b. 1922</small></span></button><button type="button" class="tb-br" data-pick-br="2822.C1.4" style="--c:#5a7fa8"><span><b>Sofia Thome</b><small>daughter of Michael &amp; Sofia Widmann</small></span></button><button type="button" class="tb-br" data-pick-br="2822.C2.1" style="--c:#4f6d5a"><span><b>Gustav Wilhelm Thome</b><small>son of Michael &amp; Sarah Wolf</small></span></button></div></div>
-
+<!--SPLASH--><div id="splash" class="rx" role="dialog" aria-label="Welcome" hidden>
+<div id="rxhero"></div>
+<section class="rx-pick" id="rxpick">
+  <h2>Which of these children do you come from?</h2>
+  <p class="rx-q">Choose your branch. It adds your own ancestors to the family story, and every page shows how a person is related to you.</p>
+  <div class="rx-cols"><div><div class="rx-grp"><h3>Children of Johann Balthes &amp; Sofia Thome</h3><button type="button" class="rx-row rx-row2" data-pick-br="0201.C1.2"><span><b>Sofia Balthes</b><small>b. 1911</small></span><span class="rx-n">›</span></button><button type="button" class="rx-row rx-row2" data-pick-br="0201.C1.3"><span><b>Johann Balthes</b><small>b. 1912</small></span><span class="rx-n">›</span></button><button type="button" class="rx-row rx-row2" data-pick-br="0201.C1.4"><span><b>Anna Balthes</b><small>b. 1914</small></span><span class="rx-n">›</span></button><button type="button" class="rx-row rx-row2" data-pick-br="0201.C1.5"><span><b>Katharina Balthes</b><small>b. 1917</small></span><span class="rx-n">›</span></button><button type="button" class="rx-row rx-row2" data-pick-br="0201.C1.6"><span><b>Maria Balthes</b><small>b. 1919</small></span><span class="rx-n">›</span></button><button type="button" class="rx-row rx-row2" data-pick-br="0201.C1.7"><span><b>Hilda Balthes</b><small>b. 1923</small></span><span class="rx-n">›</span></button><button type="button" class="rx-row rx-row2" data-pick-br="0201.C1.8"><span><b>Mathilde Balthes</b><small>the youngest, born after 1923</small></span><span class="rx-n">›</span></button></div></div><div><div class="rx-roo"></div><div class="rx-grp"><h3>Children of Michael Thome</h3><button type="button" class="rx-row rx-row2" data-pick-br="2822.C1.1"><span><b>Michael Thome</b><small>b. 1919</small></span><span class="rx-n">›</span></button><button type="button" class="rx-row rx-row2" data-pick-br="2822.C1.2"><span><b>Martin Thome</b><small>b. 1921</small></span><span class="rx-n">›</span></button><button type="button" class="rx-row rx-row2" data-pick-br="2822.C1.3"><span><b>Heinrich Thome</b><small>1922–1943</small></span><span class="rx-n">›</span></button><button type="button" class="rx-row rx-row2" data-pick-br="2822.C1.4"><span><b>Sofia Thome</b><small>daughter of Michael &amp; Sofia Widmann</small></span><span class="rx-n">›</span></button><button type="button" class="rx-row rx-row2" data-pick-br="2822.C2.1"><span><b>Gustav Wilhelm Thome</b><small>son of Michael &amp; Sarah Wolf</small></span><span class="rx-n">›</span></button></div></div></div>
+  <p class="rx-note">Your choice is saved only on this device.</p>
   <button type="button" class="tb-skip" data-tbskip>Skip for now</button>
-  <p class="foot">Ortsfamilienbuch Roseln · Ortsfamilienbuch Magarei · Weiss, <i>Roseln mitten in Siebenbürgen</i><br><a href="familien.html" lang="de" style="color:inherit">Deutsch</a></p>
+</section>
+<p class="foot">Ortsfamilienbuch Roseln · Ortsfamilienbuch Magarei · Weiss, <i>Roseln mitten in Siebenbürgen</i><br><a href="familien.html" lang="de" data-lang="de" style="color:inherit">Deutsch</a></p>
 </div>
 <script>
 (function () {
   const sp = document.getElementById('splash');
   try { if (localStorage.getItem('tb-branch') || localStorage.getItem('tb-seen')) return; } catch (e) { return; }
+  document.getElementById('rxhero').innerHTML = RX.hero('en', '#rxpick', '#family=story', '<nav class="rx-nav"><span><img src="arms.svg" alt="">Thomä &amp; Balthes</span><a href="familien.html" lang="de" data-lang="de">Deutsch</a></nav>');
   sp.hidden = false;
   sp.addEventListener('click', e => {
+    const a = e.target.closest('a[href="#rxpick"]'); if (a) { e.preventDefault(); document.getElementById('rxpick').scrollIntoView({ behavior: 'smooth' }); return; }
+    const t = e.target.closest('a[href="#family=story"]');
     const b = e.target.closest('[data-pick-br]'), s = e.target.closest('[data-tbskip]');
-    if (!b && !s) return;
+    if (!b && !s && !t) return;
     try { if (b) localStorage.setItem('tb-branch', b.dataset.pickBr); localStorage.setItem('tb-seen', '1'); } catch (err) { }
-    sp.hidden = true; if (location.hash === '#family') location.reload(); else location.replace('#family');
+    sp.hidden = true; if (t) return; if (location.hash === '#family') location.reload(); else location.replace('#family');
   });
 })();
 </script><!--/SPLASH-->
@@ -867,7 +1024,7 @@ body{background:var(--paper)}
   function tbHome(b) {
     const A = tbAnc(b), hs = tbHomes(A);
     const tile = (h, t, s, ico) => `<a class="tb-tile" href="${h}"><span class="tb-ico" aria-hidden="true">${ico}</span><span><b>${esc(t)}</b><small>${esc(s)}</small></span></a>`;
-    return `<div class="wrap tb"><header class="hero"><svg class="church" viewBox="0 0 220 140" fill="#fff" aria-hidden="true"><path d="M92 140V68h26v72z"/><path d="M89 68h32v-5H89z"/><path d="M89 63l16-40.3L121 63z"/><path d="M89 63l2-11 2 11zM117 63l2-11 2 11z"/><rect x="104.2" y="15.7" width="1.6" height="8"/><path d="M118 140V88l30-22 30 22v52z"/><path d="M60 140V100l18-14 14 10v44z"/><path d="M0 140V112h5v-4h5v4h5v-4h5v4h5v-4h5v4h5v-4h5v4H52V140zM180 140V112h5v-4h5v4h5v-4h5v4h5v-4h5v4h5v-4h5v4H220V140z"/><path d="M40 140V96h14v44zM37 96l10-16 10 16zM196 140V92h14v48zM193 92l10-17 10 17z"/></svg><div class="crest"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x=".75" y=".75" width="32.5" height="32.5" rx="8" fill="#9c1d22" stroke="#e8cf95" stroke-width="1.5"/><g fill="#e8cf95"><path d="M13 28V15h8v13z"/><path d="M11.5 15h11v-2h-11z"/><path d="M11.5 13L17 4l5.5 9z"/><path d="M11.5 13l1-4 1 4zM20.5 13l1-4 1 4z"/></g><path d="M15.6 28v-3.2a1.4 1.4 0 0 1 2.8 0V28z" fill="#9c1d22"/></svg><div class="kick">${esc(TBW.eyebrow)}<b>Roseln · Ruja · Siebenbürgen</b></div></div><h1>${esc(TBW.h1)}</h1></header><div class="stitch"></div><p class="sub tb-intro">${esc(TBW.intro)}</p>
+    return `<div class="wrap tb">${RX.hero(TBL, '#family=branch', '#family=story')}<p class="sub tb-intro">${esc(TBW.intro)}</p>
       ${b != null ? `<div class="box tb-brbox" style="--c:${tbCol(b)}"><div class="lbl">${esc(TBW.yourBranch)}</div><a class="tb-brrow" href="${tbHref(b)}">${av(b)}<span><b>${esc(nm(b))}</b><small>${esc(tbSub(b))}</small></span></a><p>${tbBranchStat(b)}</p><a class="lnk" href="#family=branch">${esc(TBW.change)}</a></div>`
         : `<div class="box tb-pickbox"><div class="lbl" style="font-size:15px">${esc(TBW.which)}</div>${tbPicker(null)}<p class="src">${esc(TBW.whichNote)}</p></div>`}
       <div class="tb-tiles">${tile('#family=story', TBW.story, TBW.storyS, '⌛')}${tile('#family=names', TBW.names, tbF(TBW.namesS, { n: tbNames0(b).length }), 'Aa')}${tile('#family=houses', TBW.houses, tbF(TBW.housesS, { n: hs.length }), '⌂')}${tile('#family=quiz', TBW.quiz, tbF(TBW.quizS, { n: (TB.Q || []).length }), '?')}</div>
@@ -1008,7 +1165,7 @@ body{background:var(--paper)}
     if (!q && ST.filter === 'all') {
       const faces = Object.keys(PH).map(Number);
       box.innerHTML = `${faces.length ? `<div class="lbl">With photographs</div><div class="faces">${faces.map(i => `<a href="#p=${encodeURIComponent(IDS[i])}">${av(i)}${esc(nm(i))}<small>${esc(span(i))}</small></a>`).join('')}</div>` : ''}
-        ${phStrip((D.WP || []).filter(w => w.fam && !w.hs), 'Family photographs')}
+        ${phStrip((D.WP || []).filter(w => w.fam && !w.hs && !w.rx), 'Family photographs')}
         ${phStrip((D.WP || []).filter(w => w.hs && !w.por), 'Headstones in the Saxon cemetery')}
         ${phStrip((D.WP || []).filter(w => w.ppl.length && !w.fam), 'People in the Weiss photographs')}
         ${(D.WP || []).length ? `<a class="lnk" href="#books&g=1" style="font-size:13px;display:inline-block;margin-top:4px">All ${D.WP.length} photographs ›</a>` : ''}
@@ -1432,6 +1589,7 @@ body{background:var(--paper)}
       add(y, 'Died', `<p>${b}</p>`, isTree(i) ? ['gd'] : o.dp || o.cause || o.bur ? (v.diedTree ? ['ch', 'gd'] : ['ch']) : MG.cause || MG.bur ? ['mg'] : v.diedTree ? ['gd'] : ['ch'], { death: 1, dt: p[3] || (bur && bur[0]) });
     }
     if (FILM.ppl.includes(i)) add(FILM.y, 'Film: Johann Balthes and Sofia Thome, about 1959–1963', `<p>Home-movie clips filmed in Malahide Township and Norfolk Township, Ontario.</p>${filmCard()}`, ['gd'], { film: 1 });
+    if (i === 620 || i === 621) add(1959, RXL.anniv, `<p>${RXL.annivB}</p><video class="rx-vid" src="family/anniv50.mp4" controls playsinline loop muted preload="metadata" poster="family/anniv50.jpg"></video><p class="rx-vcap">${RXL.annivCap}</p>`, ['gd'], { film: 1 });
     ageMark(E, p[2] || (o.bap && o.bap[0]), p[3]);
     return E;
   }
@@ -1550,6 +1708,37 @@ body{background:var(--paper)}
     return h;
   }
 
+
+  // ---------------- Reunion: family houses and village photographs ----------------
+  const RXL = {"fam": "Our family’s houses", "all": "houses with records", "ours": "our family", "house": "House", "village": "Village", "thenNow": "Then and now", "photos": "Photographs", "open": "Open the house page", "map": "View on the map", "more": "more households", "anniv": "50th wedding anniversary", "annivB": "Johann and Sofia on their 50th wedding anniversary, 31 January 1959.", "annivCap": "Animated from a photograph with AI; it is not film of the day."}, RX_FAM = ["109", "76", "27", "7", "86", "72", "54", "71"];
+  const rxPh = h => (D.WP || []).filter(w => w.rx && w.h.includes(h));
+  const rxHero = h => rxPh(h).find(w => w.hero && w.h[0] === h);
+  const rxFig = w => `<button type="button" class="rx-fig" data-ph="${w.id}"><img src="${w.t || w.f}" alt="" loading="lazy"><span>${esc(w.sub)}<i>${esc(w.y ? (w.y < 1990 ? (TBL === 'de' ? 'um ' : 'about ') + w.y : w.page) : '')}</i></span></button>`;
+  const rxPins = () => Object.keys(H).filter(h => D.HPX[h] && rxHero(h)).map(h => `<span class="pv-pin" style="left:${D.HPX[h][0]}px;top:${D.HPX[h][1]}px"><img src="${rxHero(h).t}" alt=""><b>${esc(h)}</b></span>`).join('');
+  const rxLeg = () => `<div class="pvleg rx-leg"><h3>${RXL.fam}</h3><div class="rx-chips" id="rxfam">${RX_FAM.slice(0, 4).filter(h => H[h]).map(h => `<button type="button" data-goh="${esc(h)}">${esc(H[h].street || '')} <i>${esc(h)}</i></button>`).join('')}</div><div class="rx-key"><span><i class="b"></i>${Object.keys(H).length} ${RXL.all}</span><span><i></i>${RXL.ours}</span></div></div>`;
+  function rxSheet(h) {
+    const Hh = H[h], own = rxPh(h), st = Hh.street;
+    const ph = own.length ? own : (D.WP || []).filter(w => !w.fam && (w.h.includes(h) || (st && w.st.includes(st)))).slice(0, 8);
+    const hh = Hh.hh.slice().sort((a, b) => (a[2] || 9999) - (b[2] || 9999));
+    return `<button type="button" class="pvx" aria-label="Close">✕</button><p class="k" style="font:italic 400 15px var(--serif);color:var(--red);margin:0">${RXL.house}${st ? ' · ' + esc(st) : ''}</p><h3>${esc(houseName(h))}</h3>
+      ${ph.length ? `<div class="rx-strip" data-phset="${ph.map(w => w.id).join(',')}">${ph.map(w => `<button type="button" data-ph="${w.id}"><img src="${w.t || w.f}" alt="" loading="lazy"><span>${esc(w.sub || w.page)}</span></button>`).join('')}</div>` : ''}
+      ${Hh.note ? `<p style="margin:4px 0 0;font-size:13.5px;line-height:1.45">${esc(Hh.note.split(/(?<=\.)\s/)[0])}</p>` : ''}
+      ${hh.length ? `<div class="rx-fams">${hh.slice(0, 3).map(e => `<div><b>${e[2] ? (e[3] && e[3] !== e[2] ? `${e[2]}–${e[3]}` : e[2]) : '–'}</b><span>${[e[0], ...e[1]].map(j => plink(j)).join(' &amp; ')}</span></div>`).join('')}${hh.length > 3 ? `<div class="muted" style="font-size:12.5px">+ ${hh.length - 3} ${RXL.more}</div>` : ''}</div>` : ''}
+      <div class="acts" style="margin-top:10px"><a class="btn pri" href="#h=${encodeURIComponent(h)}">${RXL.open} ›</a><a class="btn" href="${mapH(h, '#village')}">${MAP_ICO}${RXL.map}</a></div>`;
+  }
+  function rxHouse(h) {
+    const wrap = $('#view .wrap'); if (!wrap) return;
+    const ph = rxPh(h), hero = rxHero(h), then = ph.find(w => w.y && w.y < 1990), sub = wrap.querySelector('.sub');
+    if (hero) {
+      ['.bar', '.eyebrow', 'h1'].forEach(s => { const e = wrap.querySelector(s); if (e) e.remove(); });
+      wrap.insertAdjacentHTML('afterbegin', `<header class="rx-hhero" style="background-image:url('${hero.f}')"><a class="rx-bk" href="#village">‹ ${RXL.village}</a><div class="t"><p>${RXL.house}${H[h].street ? ' · ' + esc(H[h].street) : ''}</p><h1>${esc(houseName(h))}</h1><small>${esc(hero.sub)} · ${esc(hero.page)}</small></div></header><div class="rx-tre"></div>`);
+    }
+    let mid = '';
+    if (then && hero) mid += `<div class="lbl">${RXL.thenNow}</div><div class="rx-tn" data-phset="${then.id},${hero.id}">${rxFig(then)}${rxFig(hero)}</div>`;
+    const rest = ph.filter(w => w !== hero && w !== then);
+    if (rest.length) mid += `<div class="lbl">${RXL.photos} <span>${ph.length}</span></div><div class="rx-gal" data-phset="${ph.map(w => w.id).join(',')}">${rest.map(rxFig).join('')}</div>`;
+    if (mid && sub) sub.insertAdjacentHTML('afterend', mid);
+  }
   // ---------------- HOUSE ----------------
   function renderHouse(h) {
     const Hh = H[h], later = (Hh.addr[0] || '').split('/').slice(1);
@@ -1561,10 +1750,11 @@ body{background:var(--paper)}
       <div class="acts"><a class="btn pri wide" href="${mapH(h)}">${MAP_ICO}View on the map</a></div>
       ${Hh.note ? `<p style="font-size:14.5px;line-height:1.55;margin:14px 0 0">${esc(Hh.note)}</p>` : ''}
       ${Hh.lists.length ? `<div class="lbl">Owners in the house lists <span class="w">(Weiss)</span></div><div class="box" style="padding:10px 14px"><div class="lists" style="margin:0">${Hh.lists.map(([y, n]) => `<b>${esc(y)}</b><span>${esc(n)}</span>`).join('')}</div></div>` : ''}
-      ${phStrip((D.WP || []).filter(w => w.h.includes(h)), 'Photographs')}
+      ${phStrip((D.WP || []).filter(w => w.h.includes(h) && !w.rx), 'Photographs')}
       <div class="lbl">Households recorded here <span>${hh.length}</span></div>
       <div class="box" style="padding:2px 14px"><ul class="hh">${hh.map(e => `<li><span class="y">${e[2] ? (e[3] && e[3] !== e[2] ? `${e[2]}–${e[3]}` : e[2]) : 'undated'}</span><span>${[e[0], ...e[1]].map(j => plink(j)).join(' &amp; ')}${e[4] ? ` <span class="muted">(${esc(h + e[4])})</span>` : ''}</span></li>`).join('')}</ul></div>
       <p class="src" style="margin-top:12px;line-height:1.5">Households: residence records in the Roseln church book (to 1925). House lists: Weiss 2010, pp.451–468. Years are the first and last record of each household here; “undated” entries have their dates withheld for privacy.</p></div>`;
+    rxHouse(h);
   }
 
   // ---------------- VILLAGE ----------------
@@ -1574,7 +1764,7 @@ body{background:var(--paper)}
     if (mode === 'plan') {
       body = `<div class="pvwrap"><div class="pv" id="vplan"></div>
         <label class="gopill"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="gohouse" inputmode="text" placeholder="Go to house number" aria-label="Go to house number" autocomplete="off"></label>
-        <div class="pvleg"><i></i>${Object.keys(H).length} houses with records · tap one</div>
+        ${rxLeg()}
         <div class="pvsheet" id="vsheet" hidden></div></div>`;
     } else if (mode === 'offices') {
       const g = new Map();
@@ -1590,7 +1780,7 @@ body{background:var(--paper)}
       const chP = (D.WP || []).filter(w => w.ch);
       body = (chP.length ? `<div id="st-church">${phStrip(chP, 'The fortified church')}</div>` : '') + [...streets].sort((a, b) => b[1].length - a[1].length).map(([s, hs]) => `<div id="st-${esc(s)}">${phStrip((D.WP || []).filter(w => w.st.includes(s)), esc(s) + ' · photographs')}</div><div class="lbl">${esc(s)} <span>${hs.length} houses</span></div><div class="box street">${hs.sort((a, b) => parseInt(a) - parseInt(b) || a.localeCompare(b)).map(h => { const Hh = H[h], last = Hh.lists[Hh.lists.length - 1]; return `<a class="hrow" href="#h=${encodeURIComponent(h)}"><span class="no">No. ${esc(h)}</span><span class="o">${last ? `<b>${esc(last[1])}</b> · ${esc(last[0])}` : 'no owner list'}</span><span class="n">${Hh.hh.length} households</span></a>`; }).join('')}</div>`).join('');
     }
-    $('#view').innerHTML = `<div class="wrap" style="padding-top:16px${mode === 'plan' ? ';margin-bottom:-24px' : ''}"><div class="eyebrow">Roseln · Ruja</div><h1>The village</h1>
+    $('#view').innerHTML = `<div class="wrap" style="padding-top:16px${mode === 'plan' ? ';margin-bottom:-24px' : ''}"><div class="rx-tre"></div><div class="eyebrow">Roseln · Ruja</div><h1>The village</h1>
       <div class="seg" role="group" aria-label="Village view"><button type="button" data-vm="plan" aria-pressed="${mode === 'plan'}">Plan</button><button type="button" data-vm="houses" aria-pressed="${mode === 'houses'}">Streets</button><button type="button" data-vm="offices" aria-pressed="${mode === 'offices'}">Offices</button></div>${body}</div>`;
     { const sq = parseHash().s; if (mode === 'houses' && sq) requestAnimationFrame(() => { const el = document.getElementById('st-' + sq); if (el) el.scrollIntoView({ block: 'start' }); }); }
     if (mode === 'plan') {
@@ -1599,12 +1789,11 @@ body{background:var(--paper)}
       function sheet(h) {
         const Hh = H[h], el = $('#vsheet'); if (!Hh) { el.hidden = true; return; }
         const ys = Hh.hh.map(e => e[2]).filter(Boolean), ye = Hh.hh.map(e => e[3] || e[2]).filter(Boolean);
-        el.innerHTML = `<button type="button" class="pvx" aria-label="Close">✕</button><h3>${esc(houseName(h))}</h3>
-          <p>${Hh.lists.map(([y, n]) => `${esc(n)} (${esc(y)})`).join(' · ')}${Hh.lists.length ? ' · ' : ''}${Hh.hh.length} households${ys.length ? `, ${Math.min(...ys)}–${Math.max(...ye)}` : ''}</p>
-          <div class="acts" style="margin-top:10px"><a class="btn pri" href="#h=${encodeURIComponent(h)}">Open house record ›</a><a class="btn" href="${mapH(h, '#village')}">${MAP_ICO}View on the map</a></div>`;
+        el.innerHTML = rxSheet(h);
         el.hidden = false;
         el.querySelector('.pvx').onclick = () => { el.hidden = true; ST.vSel = null; pv.select(null); };
       }
+      $('#rxfam').addEventListener('click', e => { const b = e.target.closest('[data-goh]'); if (!b) return; const h = b.dataset.goh; ST.vSel = h; pv.select(h); pv.centre(h, 1); sheet(h); });
       const go = $('#gohouse');
       go.addEventListener('keydown', e => { if (e.key !== 'Enter') return; const v = go.value.trim().toLowerCase().replace(/^no\.?\s*/, ''); const h = Object.keys(H).find(k => k.toLowerCase() === v); if (h) { ST.vSel = h; pv.select(h); pv.centre(h, 1); sheet(h); go.blur(); } else toast('No house ' + go.value + ' with records'); });
     }
@@ -1613,7 +1802,7 @@ body{background:var(--paper)}
   // ---------------- PLAN VIEWER (pan / pinch / wheel zoom over the 1869 plan) ----------------
   function planView(el, { sel = null, onPick } = {}) {
     const W = D.OV.w, Hh = D.OV.h;
-    el.innerHTML = `<div class="pv-in" style="width:${W}px;height:${Hh}px"><img src="roseln1869.png" width="${W}" height="${Hh}" alt="The 1869 village plan of Roseln" draggable="false">${Object.keys(H).filter(h => D.HPX[h]).map(h => `<button type="button" class="pv-d${h === sel ? ' sel' : ''}" data-h="${esc(h)}" style="left:${D.HPX[h][0]}px;top:${D.HPX[h][1]}px" aria-label="${esc(houseName(h))}"></button>`).join('')}</div>
+    el.innerHTML = `<div class="pv-in" style="width:${W}px;height:${Hh}px"><img src="roseln1869.png" width="${W}" height="${Hh}" alt="The 1869 village plan of Roseln" draggable="false">${Object.keys(H).filter(h => D.HPX[h]).map(h => `<button type="button" class="pv-d${h === sel ? ' sel' : ''}${RX_FAM.includes(h) ? ' fam' : ''}" data-h="${esc(h)}" style="left:${D.HPX[h][0]}px;top:${D.HPX[h][1]}px" aria-label="${esc(houseName(h))}"></button>`).join('')}${rxPins()}</div>
       <div class="pv-zoom"><button type="button" data-z="1" aria-label="Zoom in">+</button><button type="button" data-z="-1" aria-label="Zoom out">−</button></div>`;
     const inner = el.querySelector('.pv-in');
     let s = .6, tx = 0, ty = 0;
@@ -1699,8 +1888,8 @@ body{background:var(--paper)}
         <div class="lbl" id="gal-h">From the Weiss book</div><div id="galbox">${gallery()}</div><p class="src">Only photographs that show someone in the church books, a Roseln house or street, or the church are included.</p></div>
       <div class="box book"><div class="bar2" style="background:var(--t-gd)"></div><b>Family photographs</b> ${tagHTML('gd')}
         <p>Photographs from a Roseln family's own collection: portraits and family groups of the Thomä and Balthes families, about 1900–1927, each linked to the people in the church book.</p>
-        <div class="stats"><div><b>${(D.WP || []).filter(w => w.fam && !w.hs).length}</b>photographs</div></div>
-        <div class="lbl">Family photos</div>${galGrid((D.WP || []).filter(w => w.fam && !w.hs))}<p class="src">Family collection; the portraits of Anna Thomä and the Balthes family were given by Mathilde Balthes.</p></div>
+        <div class="stats"><div><b>${(D.WP || []).filter(w => w.fam && !w.hs && !w.rx).length}</b>photographs</div></div>
+        <div class="lbl">Family photos</div>${galGrid((D.WP || []).filter(w => w.fam && !w.hs && !w.rx))}<p class="src">Family collection; the portraits of Anna Thomä and the Balthes family were given by Mathilde Balthes.</p></div>
       <div class="box book"><div class="bar2" style="background:var(--t-gd)"></div><b>Saxon cemetery, Roseln</b>
         <p>Headstones in the Saxon cemetery at Roseln, photographed by Randy Harris in 2016 and 2018, with their inscriptions and links to the people in the church book.</p>
         <div class="stats"><div><b>${(D.WP || []).filter(w => w.hs).length}</b>photographs</div></div>

@@ -13,3 +13,11 @@ branch picker, the family story, Did you know?, family names, family houses and 
 This folder IS the website. Keep it private until Weiss and Albrich have agreed to publication. Opening index.html
 straight from the computer does not work; use the web address, or run "python -m http.server" here and open
 http://localhost:8000 .
+
+NEW LOOK (October 2026)
+- Same look as Thomä & Balthes Reunion: linen, evening slate and gold, with cross-stitch borders re-stitched from
+  Emil Sigerus, Siebenbürgisch-sächsische Leinenstickereien (Hermannstadt, 1906): patterns 25, 26 and 27 (Tafel VII)
+  and the rooster row of pattern 48 (Tafel XII), all from the Großkokler Komitat. Fonts: Crimson Pro and Instrument Sans (OFL).
+- Village tab: the 1869 plan with cross-stitched houses (family houses in red) and photographs on the house pages.
+- Photographs by Randy Harris (2016, 2018, 2023, 2024, 2025) and the early-1970s print of Nos. 109 and 110 given by
+  Anna Balthes. Johann and Sofia's 50th-anniversary picture, animated with AI, is on their Life pages.

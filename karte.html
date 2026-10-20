@@ -39,7 +39,7 @@ body.from-fam #map-title{top:64px}
 #house-card a.fl{color:var(--rh-accent);font-weight:600;text-decoration:underline;text-decoration-color:rgba(28,56,104,.35);text-underline-offset:2px}
 </style>
 <title>Thomä &amp; Balthes: Unsere Roselner Familie</title>
-<meta name="theme-color" content="#faf7f1">
+<meta name="theme-color" content="#1f2b3b">
 <style>
 @font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ebgaramond-Regular.woff) format('woff')}
 @font-face{font-family:'EB Garamond';font-style:italic;font-weight:400 500;font-display:swap;src:url(fonts/ebgaramond-Italic.woff) format('woff')}
@@ -640,6 +640,69 @@ a.house-btn { text-decoration: none; }
 .filmbox p { color: #ccc; font: 12px var(--rh-font-ui); margin: 10px 0 0; max-width: 960px; text-align: center; }
 </style>
 
+
+<style>
+/* ===== Reunion "Linen frame" (2026-10): the satellite map stays clear; linen and cross-stitch around it ===== */
+@font-face{font-family:'Crimson Pro';font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/CrimsonPro-Regular.ttf) format('truetype')}
+@font-face{font-family:'Crimson Pro';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/CrimsonPro-Bold.ttf) format('truetype')}
+@font-face{font-family:'Crimson Pro';font-style:italic;font-weight:400 700;font-display:swap;src:url(fonts/CrimsonPro-Italic.ttf) format('truetype')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400 500;font-display:swap;src:url(fonts/InstrumentSans-Regular.ttf) format('truetype')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:600 700;font-display:swap;src:url(fonts/InstrumentSans-Bold.ttf) format('truetype')}
+:root{--rh-paper:#f4f0e6;--rh-paper-solid:#f7f4ec;--rh-glass:#f4f0e6;--rh-ink:#1f242b;--rh-ink-soft:#5f646b;--rh-hairline:#dcd5c4;
+  --rh-accent:#1f2b3b;--rh-accent-soft:rgba(45,92,156,.09);--side-b:#2d5c9c;--side-t:#a8322b;--side-both:#7b3f8c;--rx-red:#a8322b;--rx-gold:#c79a3c;
+  --rh-font-display:'Crimson Pro',Georgia,'Times New Roman',serif;--rh-font-ui:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--rh-radius:12px}
+.glass{background-color:#f4f0e6;background-image:repeating-linear-gradient(0deg,transparent 0 4px,rgba(120,100,60,.05) 4px 5px),repeating-linear-gradient(90deg,transparent 0 4px,rgba(120,100,60,.05) 4px 5px);
+  backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 4px 16px rgba(20,20,20,.28)}
+/* title card with the trefoil border */
+#map-title{flex-wrap:wrap;row-gap:0;padding:0 10px 8px 16px;overflow:hidden;text-align:left}
+#map-title::before{content:"";flex:0 0 calc(100% + 26px);height:16px;margin:0 -10px 6px -16px;background:var(--rx-tre) repeat-x center/auto 14px;border-bottom:1px solid var(--rh-hairline)}
+#map-title .mt-text{flex:1}
+#map-title h1{font:400 23px/1.1 var(--rh-font-display);letter-spacing:0}
+#map-title p{font:italic 400 14px/1.3 var(--rh-font-display);color:var(--rx-red)}
+.change-btn{background:#1f2b3b;border-color:#1f2b3b}
+@media (max-width:760px){#map-title h1{font-size:19px}#map-title p{font-size:13px}}
+/* timeline under a band of roosters */
+#timeline{padding-top:0;overflow:hidden}
+#timeline::before{content:"";grid-column:1/-1;height:24px;margin:0 -16px 2px;background:var(--rx-band) repeat-x center/auto 16px;border-bottom:1px solid var(--rh-hairline)}
+@media (max-width:1100px){#timeline::before{margin:0 -12px 0}}
+#year{font:400 38px/1 var(--rh-font-display)}
+@media (max-width:1100px){#year{font-size:28px}}
+#play{background:#1f2b3b;box-shadow:none}
+#slider{accent-color:var(--rx-red)}
+#ticks span.ev{color:var(--rx-red)}
+.sp.on,.mb[aria-expanded="true"]{background:#1f2b3b;border-color:#1f2b3b}
+.sp.all{border-color:#1f2b3b;color:#1f2b3b}.sp.all.on{background:#1f2b3b;color:#fff}
+.sp,.mb{background:#fff}
+/* cross-stitch markers */
+.mk{width:22px;height:22px;border:0!important;border-radius:0;box-shadow:none;background:none}
+.mk:not(.photo) svg{display:block;width:100%;height:100%;overflow:visible}
+.mk.est{background:none!important;opacity:.62}
+.mk.photo{border:3px solid!important;border-radius:50%;box-shadow:0 0 0 2px #f4f0e6,0 2px 6px rgba(0,0,0,.5)}
+.mk.online{box-shadow:none;filter:drop-shadow(0 0 3px #f2c14e) drop-shadow(0 0 2px #f2c14e)}
+.mk.target{box-shadow:none;filter:drop-shadow(0 0 5px #f2c14e) drop-shadow(0 0 4px #f2c14e)}
+.mk-grp{background:#f4f0e6;border:1.5px solid #1f2b3b;border-radius:3px;font-family:var(--rh-font-ui);box-shadow:0 2px 6px rgba(0,0,0,.45)}
+.mk-grp i,.person .dot,.legend-item .sw:not(.est):not(.grp),.av-dot{border-radius:0;border:0;box-shadow:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1.6 1.6L8.4 8.4M8.4 1.6L1.6 8.4' stroke='%23000' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1.6 1.6L8.4 8.4M8.4 1.6L1.6 8.4' stroke='%23000' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.mk-grp i{width:9px;height:9px}
+.person .dot{width:11px;height:11px}
+.legend-item .sw:not(.est):not(.grp){width:13px;height:13px}
+/* cards */
+.lc-eyebrow,#panel-head .eyebrow,#house-card .lc-eyebrow,.pk-eyebrow,.card-title{font:italic 400 15px var(--rh-font-display);letter-spacing:0;text-transform:none;color:var(--rx-red)}
+.lc-title{font:400 22px/1.15 var(--rh-font-display)}
+.st-year{font:400 30px/1.1 var(--rh-font-display);color:var(--rx-gold)}
+#panel-head .count{font:400 24px/1.2 var(--rh-font-display)}
+.maplibregl-popup-content{background:#f4f0e6;border:1px solid #dcd5c4;border-radius:10px;box-shadow:0 4px 16px rgba(20,20,20,.3)}
+.maplibregl-popup-anchor-bottom .maplibregl-popup-tip{border-top-color:#f4f0e6}.maplibregl-popup-anchor-top .maplibregl-popup-tip{border-bottom-color:#f4f0e6}
+#house-card{max-height:calc(100% - 180px)}
+.rx-hph{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:2px -16px 8px -14px;padding:0 16px 0 14px}
+.rx-hph a{flex:none;width:180px;text-decoration:none;color:inherit}
+.rx-hph img{display:block;width:180px;height:120px;object-fit:cover;border-radius:4px}
+.rx-hph span{display:block;font:italic 400 12.5px/1.3 var(--rh-font-display);color:var(--rh-ink-soft);margin-top:3px}
+#picker .pk{background-color:#f4f0e6}
+.legend-item[data-side=self] .sw{background:var(--rx-gold)!important}
+.hs-h{font:italic 400 16px var(--rh-font-display)!important;letter-spacing:0!important;text-transform:none!important;color:var(--rx-red)!important}
+#picker h2{font:400 28px/1.15 var(--rh-font-display)}
+</style>
+<script src="reunion.js"></script>
 <div id="app">
   <div id="map"></div>
 
@@ -795,7 +858,9 @@ Promise.all([fetch('data/people.json').then(r => { if (!r.ok) throw new Error(r.
   DATA.R.forEach(rw => { if (!RAW.has(rw[0])) RAW.set(rw[0], []); RAW.get(rw[0]).push(rw); });
   const CERT = { r: 'Daten aus Einträgen', a: 'ungefähr (Jahres- oder ungefähre Daten)', e: 'geschätzt', w: 'nach dem letzten datierten Eintrag (Datum im Familienbuch gesperrt)', k: 'geschätzt aus der Geburt eines Kindes (±20 Jahre)' };
   const SIDE_COLOR = { B: 'var(--side-b)', T: 'var(--side-t)', both: 'var(--side-both)', self: 'var(--rh-accent)' };
-  const SIDE_HEX = { B: '#1f78b4', T: '#d4891a', both: '#7a4bb5', self: '#1c3868' };
+  const SIDE_HEX = { B: '#2d5c9c', T: '#a8322b', both: '#7b3f8c', self: '#c79a3c' };
+  const RXHP = {"109": [["village/rx_109_2016a_t.jpg", "village/rx_109_2016a.jpg", "Nr. 109 und 110 heute"], ["village/rx_109_1970s_t.jpg", "village/rx_109_1970s.jpg", "Nr. 109 und 110 Anfang der 1970er Jahre"], ["village/rx_109_2016b_t.jpg", "village/rx_109_2016b.jpg", "Das neuere Haus an der Straße"], ["village/rx_109_2016c_t.jpg", "village/rx_109_2016c.jpg", "Das alte weiße Haus hinten im Hof"], ["village/rx_109_2024b_t.jpg", "village/rx_109_2024b.jpg", "Der Brunnen im Hof"], ["village/rx_109_2024a_t.jpg", "village/rx_109_2024a.jpg", "Unter der Traufe"], ["village/rx_109_2016d_t.jpg", "village/rx_109_2016d.jpg", "Eine Tür neben Nr. 109"], ["village/rx_109_2016e_t.jpg", "village/rx_109_2016e.jpg", "Nr. 109 und 110 von weiter oben"]], "110": [["village/rx_109_2016a_t.jpg", "village/rx_109_2016a.jpg", "Nr. 109 und 110 heute"], ["village/rx_109_1970s_t.jpg", "village/rx_109_1970s.jpg", "Nr. 109 und 110 Anfang der 1970er Jahre"], ["village/rx_109_2016e_t.jpg", "village/rx_109_2016e.jpg", "Nr. 109 und 110 von weiter oben"]], "56": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "75": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "70": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "1": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "10": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "58": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "62": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "66": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"], ["village/rx_lane_cem_t.jpg", "village/rx_lane_cem.jpg", "Vom sächsischen Friedhof aus"], ["village/rx_lane_6667_t.jpg", "village/rx_lane_6667.jpg", "Das Gässchen zwischen Nr. 66 und 67"]], "67": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"], ["village/rx_lane_cem_t.jpg", "village/rx_lane_cem.jpg", "Vom sächsischen Friedhof aus"], ["village/rx_lane_6667_t.jpg", "village/rx_lane_6667.jpg", "Das Gässchen zwischen Nr. 66 und 67"]], "77": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "79": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "80": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "88": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "97": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "98": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "104": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]], "119": [["village/rx_ch_plaque_t.jpg", "village/rx_ch_plaque.jpg", "Die Gedenktafel 1914–1918 in der Kirche"]]};
+  const RXX = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.6 1.6L8.4 8.4M8.4 1.6L1.6 8.4" stroke="#f4f0e6" stroke-width="4.4" stroke-linecap="round"/><path d="M1.6 1.6L8.4 8.4M8.4 1.6L1.6 8.4" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>';
   const SIDE_NAME = { B: 'Väterliche Seite', T: 'Mütterliche Seite', both: 'Beide Seiten', self: 'Gewählte Person' };
   const hidden = new Set();
   const photoOf = r => PH[r.k] || null;
@@ -981,7 +1046,7 @@ Promise.all([fetch('data/people.json').then(r => { if (!r.ok) throw new Error(r.
         el = document.createElement('div');
         const ph = photoOf(r);
         el.className = 'mk' + (r.est ? ' est' : '') + (ph ? ' photo' : '');
-        el.style.background = ph ? `${SIDE_HEX[r.s]} url('${ph}')` : SIDE_HEX[r.s];
+        if (ph) el.style.background = `${SIDE_HEX[r.s]} url('${ph}')`; else { el.style.color = SIDE_HEX[r.s]; el.innerHTML = RXX; }
         el.style.borderColor = (r.est || ph) ? SIDE_HEX[r.s] : '#fff';
       } else {
         el = document.createElement('div'); el.className = 'mk-grp';
@@ -1407,6 +1472,7 @@ Promise.all([fetch('data/people.json').then(r => { if (!r.ok) throw new Error(r.
     const mine = hh.filter(x => x.anc.length), rel = hh.filter(x => !x.anc.length && x.rel), other = hh.filter(x => !x.anc.length && !x.rel);
     const lists = H.lists.length ? `<div class="hs-h">Besitzer laut Hauslisten des Dorfes</div><div class="hs-lists">${H.lists.map(([y, n]) => `<b>${esc(y)}</b><span>${esc(n)}</span>`).join('')}</div>` : '';
     document.getElementById('hs-body').innerHTML =
+      ((RXHP[h] || []).length ? `<div class="rx-hph">${RXHP[h].map(([t, f, c]) => `<a href="${f}" target="_blank" rel="noopener"><img src="${t}" alt="" loading="lazy"><span>${esc(c)}</span></a>`).join('')}</div>` : '') +
       (H.note ? `<p class="hs-note">${esc(H.note)}</p>` : '') +
       ((DATA.SV || {})[h] ? `<a class="hs-sv" href="${esc(DATA.SV[h].u)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><path d="M9.5 21v-5l-1.5-1V10a4 4 0 0 1 8 0v5l-1.5 1v5z"/></svg><span><b>Das Haus heute in Google Street View</b><small>Öffnet mit Blick von der Straße auf das Grundstück, etwa ${DATA.SV[h].d} m entfernt. Das sichtbare Gebäude kann das Haus selbst oder das eines Nachbarn sein.</small></span></a>` : `<div class="hs-nosv">Für diese Gasse gibt es keine Google-Street-View-Aufnahmen.</div>`) + lists +
       (HOUSE_ALL ? `<div class="hs-h">Hier verzeichnete Haushalte (${hh.length})</div><ul class="hs-hh">${hh.slice().sort((a, b) => (a.y0 || 9999) - (b.y0 || 9999)).map(hhItem).join('')}</ul><a class="hs-fam" href="familien.html#h=${encodeURIComponent(h)}">Haus in Thomä & Balthes öffnen ›</a>` : '') +
