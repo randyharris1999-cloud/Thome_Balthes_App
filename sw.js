@@ -1,7 +1,7 @@
 // Offline support for Thomä & Balthes (index.html) and its map (map.html).
 // Bump VERSION whenever you upload a new build so phones pick up the change.
-const VERSION = 'thome-balthes-v4';
-const CORE = ['./', 'index.html', 'familien.html', 'map.html', 'karte.html', 'data/de_karte.json', 'arms.svg', 'manifest-de.webmanifest', 'data/records_de.json', 'data/de.json', 'vorfahren.html', 'manifest.webmanifest', 'manifest-map.webmanifest', 'roseln1869.png', 'roseln1869_w.png',
+const VERSION = 'thome-balthes-v5';
+const CORE = ['./', 'index.html', 'familien.html', 'map.html', 'karte.html', 'data/de_karte.json', 'arms.svg', 'manifest-de.webmanifest', 'data/records_de.json', 'data/de.json', 'vorfahren.html', 'manifest.webmanifest', 'manifest-map.webmanifest', 'roseln1869.png', 'roseln1869_w.png', 'roseln1954.png', 'roseln1954_w.png',
   'data/people.json', 'data/records.json',
   'sat_village.jpg', 'sat_valley.jpg', 'sat_mures.jpg', 'sat_ontario.jpg',
   'icons/icon-192.png', 'reunion.js', 'fonts/CrimsonPro-Regular.ttf', 'fonts/CrimsonPro-Italic.ttf', 'fonts/CrimsonPro-Bold.ttf', 'fonts/InstrumentSans-Regular.ttf', 'fonts/InstrumentSans-Bold.ttf', 'icons/icon-512.png', 'icons/apple-touch-icon.png',

@@ -178,6 +178,9 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--rh-accent);
 .bm-btn + .bm-btn { border-left: 1px solid var(--rh-hairline); }
 .bm-btn:hover { background: var(--rh-accent-soft); }
 .bm-btn.on { background: var(--rh-accent); color: #fff; font-weight: 600; }
+.pl-btn { font: 500 12px/1.4 var(--rh-font-ui); padding: 7px 14px; border: 0; background: transparent; color: var(--rh-ink); cursor: pointer; }
+.pl-btn + .pl-btn { border-left: 1px solid var(--rh-hairline); }
+.pl-btn.on { background: var(--rh-accent); color: #fff; font-weight: 600; }
 .card { padding: 10px 13px 11px; width: 100%; box-sizing: border-box; font-size: 12.5px; }
 .card-title { font-weight: 600; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .card-title .hint { font-weight: 400; color: var(--rh-ink-soft); font-size: 11px; }
@@ -242,7 +245,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--rh-accent);
 .mk-grp i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; }
 .hn-label { font: 700 10px/1 var(--rh-font-ui); color: #fff; text-shadow: 0 0 3px #000, 0 0 2px #000; pointer-events: none; transform: translate(10px,-14px); white-space: nowrap; }
 
-#overlay1869 { position: absolute; left: 0; top: 0; transform-origin: 0 0; pointer-events: none; will-change: transform; max-width: none !important; max-height: none !important;
+#overlay1869, #overlay1954 { position: absolute; left: 0; top: 0; transform-origin: 0 0; pointer-events: none; will-change: transform; max-width: none !important; max-height: none !important;
   }
 .plain #overlay1869 { filter: none; }
 .sat { position: absolute; left: 0; top: 0; transform-origin: 0 0; pointer-events: none; max-width: none !important; user-select: none; }
@@ -694,12 +697,9 @@ a.house-btn { text-decoration: none; }
 .maplibregl-popup-anchor-bottom .maplibregl-popup-tip{border-top-color:#f4f0e6}.maplibregl-popup-anchor-top .maplibregl-popup-tip{border-bottom-color:#f4f0e6}
 #house-card{max-height:calc(100% - 180px)}
 @media (max-width:1100px){#house-card{max-height:44%}}
-.hs-mark{position:relative;width:46px;height:46px;cursor:pointer;z-index:4}
-.hs-mark i{position:absolute;inset:0;border-radius:50%;border:4px solid #1f2b3b;box-shadow:0 0 0 2.5px #fff,0 0 0 4px rgba(0,0,0,.25),inset 0 0 0 2.5px #fff;background:rgba(255,255,255,.12)}
-.hs-mark i:after{content:'';position:absolute;inset:-12px;border-radius:50%;border:3px solid #fff;opacity:0;animation:hsPulse 2s ease-out infinite}
-@keyframes hsPulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.25);opacity:0}}
-.hs-mark b{position:absolute;left:50%;top:52px;transform:translateX(-50%);white-space:nowrap;background:#1f2b3b;color:#fff;font:700 13px/1 var(--rh-font-ui);padding:6px 10px;border-radius:999px;box-shadow:0 0 0 2px #fff,0 2px 6px rgba(0,0,0,.35)}
-@media (prefers-reduced-motion:reduce){.hs-mark i:after{animation:none}}
+.hs-mark{position:relative;width:52px;height:52px;cursor:pointer}
+.hs-mark svg{width:52px;height:52px;display:block;filter:drop-shadow(0 2px 2px rgba(0,0,0,.35))}
+.hs-mark b{position:absolute;left:50%;top:54px;transform:translateX(-50%);white-space:nowrap;background:#f4f0e6;color:#7a201b;font:700 13px/1 var(--rh-font-ui);padding:6px 10px;border-radius:999px;border:1.5px solid #a8322b;box-shadow:0 2px 6px rgba(0,0,0,.3)}
 .rx-hph{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:2px -16px 8px -14px;padding:0 16px 0 14px}
 .rx-hph a{flex:none;width:180px;text-decoration:none;color:inherit}
 .rx-hph img{display:block;width:180px;height:120px;object-fit:cover;border-radius:4px}
@@ -794,7 +794,8 @@ a.house-btn { text-decoration: none; }
       <button type="button" class="bm-btn" data-bm="plain">Plan</button>
     </div>
     <div class="card glass">
-      <div class="card-title">1869 village map <span class="hint">Weiss p.455</span></div>
+      <div class="card-title">Village plans <span class="hint">Weiss 2010</span></div>
+      <div id="plansel" class="glass" role="group" aria-label="Plan to show" style="display:flex;border-radius:999px;overflow:hidden;margin:2px 0 8px;width:max-content"><button type="button" class="pl-btn on" data-plan="1869">1869</button><button type="button" class="pl-btn" data-plan="1954">1951/58</button></div>
       <label class="switch" for="ov-on"><input type="checkbox" id="ov-on" checked> Show house plots &amp; numbers</label>
       <label class="switch" for="lbl-on" style="margin-top:6px"><input type="checkbox" id="lbl-on" checked> Place names &amp; borders</label>
       <div class="range-row"><label for="ov-op" class="hint" style="font-size:11px;color:var(--rh-ink-soft)">Opacity</label><input type="range" id="ov-op" min="0" max="100" value="75"><output id="ov-op-out" for="ov-op">75%</output></div>
@@ -919,7 +920,7 @@ fetch('data/people.json').then(r => { if (!r.ok) throw new Error(r.status); retu
   });
   map.touchZoomRotate.disableRotation();
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left');
-  map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Imagery © Esri, Maxar, Earthstar Geographics · 1869 plan: Weiss 2010' }), 'bottom-right');
+  map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Imagery © Esri, Maxar, Earthstar Geographics · 1869 and 1951/58 plans: Weiss 2010' }), 'bottom-right');
   const satImgs = SAT.map(s => {
     const im = document.createElement('img');
     im.className = 'sat'; im.alt = ''; im.src = s.src; im._s = s;
@@ -939,6 +940,7 @@ fetch('data/people.json').then(r => { if (!r.ok) throw new Error(r.status); retu
     basemap = k;
     document.getElementById('app').classList.toggle('plain', k === 'plain');
     const o69 = document.getElementById('overlay1869'); if (o69) o69.src = k === 'plain' ? 'roseln1869.png' : 'roseln1869_w.png';
+    const o54 = document.getElementById('overlay1954'); if (o54) o54.src = k === 'plain' ? 'roseln1954.png' : 'roseln1954_w.png';
     document.querySelectorAll('.bm-btn').forEach(x => x.classList.toggle('on', x.dataset.bm === k));
   }
   document.querySelectorAll('.bm-btn').forEach(b => b.addEventListener('click', () => setBase(b.dataset.bm)));
@@ -955,8 +957,21 @@ fetch('data/people.json').then(r => { if (!r.ok) throw new Error(r.status); retu
     ov.style.transform = `matrix(${a},${b},${c},${d},${p0.x},${p0.y})`;
   }
   map.on('move', placeOverlay); map.on('resize', placeOverlay); map.on('load', placeOverlay); placeOverlay();
+  const OV54 = {"tl": [24.642357527526983, 46.01576580317487], "tr": [24.657048872444097, 46.01576580317487], "bl": [24.642357527526983, 46.0040902168503], "br": [24.657048872444097, 46.0040902168503], "w": 2704, "h": 3094};
+  const ov54 = document.createElement('img');
+  ov54.id = 'overlay1954'; ov54.alt = ''; ov54.src = basemap === 'plain' ? 'roseln1954.png' : 'roseln1954_w.png';
+  ov54.width = OV54.w; ov54.height = OV54.h; ov54.style.width = OV54.w + 'px'; ov54.style.height = OV54.h + 'px'; ov54.style.display = 'none';
+  map.getCanvasContainer().appendChild(ov54);
+  function placeOv54() {
+    const p0 = map.project(OV54.tl), p1 = map.project(OV54.tr), p2 = map.project(OV54.bl);
+    ov54.style.transform = `matrix(${(p1.x - p0.x) / OV54.w},${(p1.y - p0.y) / OV54.w},${(p2.x - p0.x) / OV54.h},${(p2.y - p0.y) / OV54.h},${p0.x},${p0.y})`;
+  }
+  map.on('move', placeOv54); map.on('resize', placeOv54); map.on('load', placeOv54); placeOv54();
+  let PLAN = '1869';
+  function setPlan(k) { PLAN = k; document.querySelectorAll('.pl-btn').forEach(x => x.classList.toggle('on', x.dataset.plan === k)); if (typeof applyOv === 'function') applyOv(); }
+  document.querySelectorAll('.pl-btn').forEach(b => b.addEventListener('click', () => { setPlan(b.dataset.plan); if (!ovOn.checked) { ovOn.checked = true; applyOv(); } }));
   const ovOn = document.getElementById('ov-on'), ovOp = document.getElementById('ov-op'), ovOut = document.getElementById('ov-op-out');
-  function applyOv() { ov.style.display = ovOn.checked ? 'block' : 'none'; ov.style.opacity = ovOp.value / 100; ovOut.value = ovOp.value + '%'; }
+  function applyOv() { ov.style.display = ovOn.checked && PLAN === '1869' ? 'block' : 'none'; ov54.style.display = ovOn.checked && PLAN === '1954' ? 'block' : 'none'; ov.style.opacity = ov54.style.opacity = ovOp.value / 100; ovOut.value = ovOp.value + '%'; }
   ovOn.addEventListener('change', applyOv); ovOp.addEventListener('input', applyOv); applyOv();
 
   // ---------- family graph (parents / children within the chosen person's pedigree) ----------
@@ -1098,7 +1113,7 @@ fetch('data/people.json').then(r => { if (!r.ok) throw new Error(r.status); retu
   document.getElementById('people').addEventListener('click', e => {
     const b = e.target.closest('.person'); if (!b) return;
     const r = ROWS.find(x => x.i === +b.dataset.i); if (!r) return;
-    const zoom = r.h ? 17.2 : (/county/.test(r.pl) ? 9 : Math.max(map.getZoom(), 12));
+    const zoom = r.h ? 16.5 : (/county/.test(r.pl) ? 9 : Math.max(map.getZoom(), 12));
     map.flyTo({ center: [r.x, r.y], zoom, duration: 900, offset: [0, Math.round(map.getContainer().clientHeight * 0.18)] });
     map.once('moveend', () => { const m = markers.find(m => m._rhList.includes(r)); if (m) m._rhOpen(r.k); });
     if (window.matchMedia('(max-width: 1100px)').matches) setPanel(false);
@@ -1164,7 +1179,7 @@ fetch('data/people.json').then(r => { if (!r.ok) throw new Error(r.status); retu
     const r = now || p.rows[0];
     hidden.delete(r.s); document.querySelectorAll(`.legend-item[data-side="${r.s}"]`).forEach(el => el.classList.remove('off'));
     if (!allMode && !now) setYear(r.y0); else { render(); drawSpark(); }
-    const zoom = r.h ? 17.2 : (/county/.test(r.pl) ? 9 : 13);
+    const zoom = r.h ? 16.5 : (/county/.test(r.pl) ? 9 : 13);
     map.flyTo({ center: [r.x, r.y], zoom, duration: 1100, offset: [0, Math.round(map.getContainer().clientHeight * 0.18)] });
     map.once('moveend', () => setTimeout(() => {
       const m = markers.find(m => m._rhList.some(x => x.k === p.k));
@@ -1487,14 +1502,14 @@ fetch('data/people.json').then(r => { if (!r.ok) throw new Error(r.status); retu
     hsCard.querySelector('.st-body').scrollTop = 0;
     hsCard.hidden = false; document.getElementById('app').classList.add('housing');
     const L0 = LOCS['H' + h]; setHouseMark(h);
-    if (L0) requestAnimationFrame(() => fitBox([[L0[0], L0[1]]], hsCard, 17.6));
+    if (L0) requestAnimationFrame(() => fitBox([[L0[0], L0[1]]], hsCard, 16.6));
   }
   let houseMark = null;
   function setHouseMark(h) {
     if (houseMark) { houseMark.remove(); houseMark = null; }
     const L0 = h && LOCS['H' + h]; if (!L0) return;
     const el = document.createElement('div'); el.className = 'hs-mark'; el.setAttribute('role', 'button'); el.setAttribute('aria-label', 'No. ' + h);
-    el.innerHTML = '<i></i><b>No. ' + esc(h) + '</b>';
+    el.innerHTML = '<svg viewBox="0 0 48 48" aria-hidden="true"><defs><radialGradient id="hsxa" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#d66a5d"/><stop offset=".55" stop-color="#a0302a"/><stop offset="1" stop-color="#5e1712"/></radialGradient><radialGradient id="hsxb" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#f08f82"/><stop offset=".55" stop-color="#b83a30"/><stop offset="1" stop-color="#6a1a14"/></radialGradient></defs><g fill="none" stroke-linecap="round"><path d="M10 10L38 38M38 10L10 38" stroke="#f4f0e6" stroke-width="13" opacity=".9"/><path d="M38 10L10 38" stroke="#4e130f" stroke-width="8"/><ellipse cx="37.07" cy="10.93" rx="1.75" ry="2.34" transform="rotate(163.0 37.07 10.93)" fill="url(#hsxa)"/><ellipse cx="35.20" cy="12.80" rx="1.75" ry="3.06" transform="rotate(163.0 35.20 12.80)" fill="url(#hsxa)"/><ellipse cx="33.33" cy="14.67" rx="1.75" ry="3.60" transform="rotate(163.0 33.33 14.67)" fill="url(#hsxa)"/><ellipse cx="31.47" cy="16.53" rx="1.75" ry="3.60" transform="rotate(163.0 31.47 16.53)" fill="url(#hsxa)"/><ellipse cx="29.60" cy="18.40" rx="1.75" ry="3.60" transform="rotate(163.0 29.60 18.40)" fill="url(#hsxa)"/><ellipse cx="27.73" cy="20.27" rx="1.75" ry="3.60" transform="rotate(163.0 27.73 20.27)" fill="url(#hsxa)"/><ellipse cx="25.87" cy="22.13" rx="1.75" ry="3.60" transform="rotate(163.0 25.87 22.13)" fill="url(#hsxa)"/><ellipse cx="24.00" cy="24.00" rx="1.75" ry="3.60" transform="rotate(163.0 24.00 24.00)" fill="url(#hsxa)"/><ellipse cx="22.13" cy="25.87" rx="1.75" ry="3.60" transform="rotate(163.0 22.13 25.87)" fill="url(#hsxa)"/><ellipse cx="20.27" cy="27.73" rx="1.75" ry="3.60" transform="rotate(163.0 20.27 27.73)" fill="url(#hsxa)"/><ellipse cx="18.40" cy="29.60" rx="1.75" ry="3.60" transform="rotate(163.0 18.40 29.60)" fill="url(#hsxa)"/><ellipse cx="16.53" cy="31.47" rx="1.75" ry="3.60" transform="rotate(163.0 16.53 31.47)" fill="url(#hsxa)"/><ellipse cx="14.67" cy="33.33" rx="1.75" ry="3.60" transform="rotate(163.0 14.67 33.33)" fill="url(#hsxa)"/><ellipse cx="12.80" cy="35.20" rx="1.75" ry="3.06" transform="rotate(163.0 12.80 35.20)" fill="url(#hsxa)"/><ellipse cx="10.93" cy="37.07" rx="1.75" ry="2.34" transform="rotate(163.0 10.93 37.07)" fill="url(#hsxa)"/><path d="M10.8 11.2L38.8 39.2" stroke="rgba(25,8,4,.5)" stroke-width="8"/><path d="M10 10L38 38" stroke="#4e130f" stroke-width="8"/><ellipse cx="10.93" cy="10.93" rx="1.75" ry="2.34" transform="rotate(73.0 10.93 10.93)" fill="url(#hsxb)"/><ellipse cx="12.80" cy="12.80" rx="1.75" ry="3.06" transform="rotate(73.0 12.80 12.80)" fill="url(#hsxb)"/><ellipse cx="14.67" cy="14.67" rx="1.75" ry="3.60" transform="rotate(73.0 14.67 14.67)" fill="url(#hsxb)"/><ellipse cx="16.53" cy="16.53" rx="1.75" ry="3.60" transform="rotate(73.0 16.53 16.53)" fill="url(#hsxb)"/><ellipse cx="18.40" cy="18.40" rx="1.75" ry="3.60" transform="rotate(73.0 18.40 18.40)" fill="url(#hsxb)"/><ellipse cx="20.27" cy="20.27" rx="1.75" ry="3.60" transform="rotate(73.0 20.27 20.27)" fill="url(#hsxb)"/><ellipse cx="22.13" cy="22.13" rx="1.75" ry="3.60" transform="rotate(73.0 22.13 22.13)" fill="url(#hsxb)"/><ellipse cx="24.00" cy="24.00" rx="1.75" ry="3.60" transform="rotate(73.0 24.00 24.00)" fill="url(#hsxb)"/><ellipse cx="25.87" cy="25.87" rx="1.75" ry="3.60" transform="rotate(73.0 25.87 25.87)" fill="url(#hsxb)"/><ellipse cx="27.73" cy="27.73" rx="1.75" ry="3.60" transform="rotate(73.0 27.73 27.73)" fill="url(#hsxb)"/><ellipse cx="29.60" cy="29.60" rx="1.75" ry="3.60" transform="rotate(73.0 29.60 29.60)" fill="url(#hsxb)"/><ellipse cx="31.47" cy="31.47" rx="1.75" ry="3.60" transform="rotate(73.0 31.47 31.47)" fill="url(#hsxb)"/><ellipse cx="33.33" cy="33.33" rx="1.75" ry="3.60" transform="rotate(73.0 33.33 33.33)" fill="url(#hsxb)"/><ellipse cx="35.20" cy="35.20" rx="1.75" ry="3.06" transform="rotate(73.0 35.20 35.20)" fill="url(#hsxb)"/><ellipse cx="37.07" cy="37.07" rx="1.75" ry="2.34" transform="rotate(73.0 37.07 37.07)" fill="url(#hsxb)"/></g><g fill="#2e0e0a"><circle cx="9" cy="9" r="1.6"/><circle cx="39" cy="9" r="1.6"/><circle cx="9" cy="39" r="1.6"/><circle cx="39" cy="39" r="1.6"/></g></svg><b>No. ' + esc(h) + '</b>';
     el.addEventListener('click', e => { e.stopPropagation(); showHouse(h); });
     houseMark = new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat([L0[0], L0[1]]).addTo(map);
   }
@@ -1619,13 +1634,20 @@ fetch('data/people.json').then(r => { if (!r.ok) throw new Error(r.status); retu
     if (hq && HOUSES[hq]) {
       // follow the household that lived there last, so the timeline has someone to show, then open the house
       const hhs = HOUSES[hq].hh.filter(e => e[2]).sort((a, b) => (b[3] || b[2]) - (a[3] || a[2]));
-      const who = i != null ? i : hhs.length ? hhs[0][0] : HOUSES[hq].hh[0][0];
+      // our family's households here (direct line of Johann, Sofia and Michael); fall back to anyone recorded
+      const FAMR = new Set((DATA.RG || [])[0] || []), ours = hhs.filter(e => [e[0], ...e[1]].some(k => FAMR.has(k)));
+      const pool = ours.length ? ours : hhs;
+      const who = i != null ? i : pool.length ? pool[0][0] : HOUSES[hq].hh[0][0];
       pk.hidden = true; setPerson(who);
-      const hw = HOUSES[hq].hh.find(e => e[0] === who) || hhs[0]; if (hw && hw[2]) setYear(hw[3] ? Math.round((hw[2] + hw[3]) / 2) : hw[2]);
+      const y0 = pool.length ? Math.min(...pool.map(e => e[2])) : null; if (y0) setYear(y0); // the year our family first appears in the house
+      setPlan('1869');
       ovOn.checked = true; applyOv();
       const go = () => { HOUSE_ALL = true; showHouse(hq); };
       if (map.loaded()) setTimeout(go, 60); else map.once('load', () => setTimeout(go, 60));
-    } else if (i != null) { pk.hidden = true; setPerson(i); } else openPicker(true);
+    } else if (i != null) {
+      pk.hidden = true; setPerson(i);
+      if (/[#&]from=fam/.test(location.hash)) { const own = ROWS.filter(r => r.k === String(i) && r.y0); if (own.length) setYear(Math.min(...own.map(r => r.y0))); } // opened from the person's page: start at their own first record
+    } else openPicker(true);
     window.addEventListener('hashchange', () => {
       const h2 = /[#&]h=([^&]+)/.exec(location.hash); if (h2 && HOUSES[decodeURIComponent(h2[1])]) { HOUSE_ALL = true; showHouse(decodeURIComponent(h2[1])); return; }
       const m2 = /[#&]p=([^&]+)/.exec(location.hash), j = m2 ? IDX.get(decodeURIComponent(m2[1])) : null; if (j != null && String(j) !== ROOT) setPerson(j); });
