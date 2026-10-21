@@ -676,9 +676,59 @@ body{background:var(--paper)}
 .rx-root>h3{font:400 22px var(--serif);margin:0 0 6px}
 .rx-live{display:inline-block;font:600 10.5px var(--ui);color:#2f6b3b;background:#e4f1e6;border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:1px}
 .rx-row2{grid-template-columns:1fr 20px}.rx-row2 .rx-n{color:var(--soft)}
+
+/* ===== Pillow end on every page (2026-10-20): the welcome screen's linen, blue tulip border, red trefoil border and roosters, carried through the app ===== */
+body,#main{background-color:#f4f0e6;background-image:repeating-linear-gradient(0deg,transparent 0 4px,rgba(120,100,60,.05) 4px 5px),repeating-linear-gradient(90deg,transparent 0 4px,rgba(120,100,60,.05) 4px 5px)}
+.bar{background:rgba(244,240,230,.95)}
+.rx-top{height:96px;margin:0 -16px;background:var(--rx-p26) repeat-x center top/auto 96px}
+.wrap>.rx-top:first-child{margin-top:env(safe-area-inset-top,0px)}
+.wrap[style*="padding-top"]>.rx-top:first-child{margin-top:calc(-16px + env(safe-area-inset-top,0px))}
+.bar+.rx-top{margin-top:2px;height:64px;background-size:auto 64px}
+.bar~.rx-red{height:28px;background-size:auto 28px;margin:12px -16px 6px}
+.rx-red{height:40px;margin:14px -16px 8px;background:var(--rx-p25) repeat-x center/auto 40px}
+.wrap>.eyebrow{font:italic 400 19px var(--serif);letter-spacing:0;text-transform:none;color:var(--red);margin-top:14px;text-align:center}
+.wrap>.rx-top+h1,.wrap>.eyebrow+h1{font:400 38px/1.05 var(--serif);text-align:center;margin:2px 0 6px}
+.wrap>h1+.sub,.wrap>h1+p.sub{text-align:center;font:italic 400 17px/1.35 var(--serif);color:var(--accent2);max-width:520px;margin:0 auto}
+.ph{padding-top:14px}
+.ph h2{font:400 30px/1.08 var(--serif)}
+.lbl{font:italic 400 18px var(--serif);letter-spacing:0;text-transform:none;color:var(--red);margin:22px 0 8px}
+.lbl span{font:500 12.5px var(--ui);font-style:normal}
+.box,.card{background:#fbf9f4;border-color:var(--rx-stone2)}
+/* Find: the slate night header becomes linen like the welcome screen */
+#find .hero{background:none;color:var(--ink);margin:0;padding:14px 0 0;text-align:center;overflow:visible}
+#find .hero .church,#find .hero .crest svg{display:none}
+#find .hero .crest{display:block}
+#find .hero .kick{font:italic 400 19px var(--serif);letter-spacing:0;text-transform:none;color:var(--red)}
+#find .hero .kick b{display:inline;font:inherit;letter-spacing:0;color:var(--red)}
+#find .hero .kick b:before{content:" · "}
+#find .hero h1{color:var(--ink);font:400 38px/1.05 var(--serif);margin:4px auto 8px;max-width:none}
+#find .hero .sub{color:var(--accent2);font:italic 400 17px/1.35 var(--serif);max-width:none}
+#find .hero .sub a{color:var(--accent2);text-decoration-color:rgba(45,92,156,.35)}
+#find .stitch{display:none}
+/* roosters stitched along the top of the tab bar, as on the map */
+#tabbar{background:#f4f0e6}
+#tabbar:after{content:"";position:absolute;left:0;right:0;top:-17px;height:16px;background:#f4f0e6 var(--rx-band) repeat-x center/auto 12px;border-top:1px solid #e3dccb;pointer-events:none}
 </style>
 <script>window.RX_TEXT = {"en": {"h1": "Thomä &amp; Balthes", "sub": "Our Roseln family", "lede": "For centuries our Transylvanian Saxon ancestors lived in the shadow of the fortified church in Roseln. Johann Balthes, Sofia Thome and her brother Michael brought that heritage to Ontario. This is the story of the family they came from.", "a2": "The family story"}, "de": {"h1": "Thomä &amp; Balthes", "sub": "Unsere Roselner Familie", "lede": "Jahrhundertelang lebten unsere siebenbürgisch-sächsischen Vorfahren im Schatten der Kirchenburg von Roseln. Johann Balthes, Sofia Thome und ihr Bruder Michael brachten dieses Erbe nach Ontario. Dies ist die Geschichte der Familie, aus der sie kamen.", "a2": "Die Familiengeschichte"}};</script>
 <script src="reunion.js"></script>
+<script>/* Pillow end on every page: give each screen the welcome screen's stitched borders */
+(function () {
+  function dress(w) {
+    if (w.dataset.rx || w.querySelector('.rx-hero') || w.closest('#welcome')) return; w.dataset.rx = '1';
+    w.querySelectorAll(':scope>.rx-tre,:scope .hero+.stitch').forEach(e => e.remove());
+    const top = document.createElement('div'); top.className = 'rx-top'; top.setAttribute('aria-hidden', 'true');
+    const f = w.firstElementChild, hh = w.querySelector(':scope>.rx-hhero');
+    if (hh) { /* a house with its own photograph header: no tulip border over the photo */ }
+    else if (f && f.classList.contains('bar')) f.after(top); else w.prepend(top);
+    let a = hh || w.querySelector(':scope>.ph') || w.querySelector(':scope>.hero') || w.querySelector(':scope>h1');
+    if (hh && a.nextElementSibling && a.nextElementSibling.classList.contains('sub')) a = a.nextElementSibling;
+    if (a && a.tagName === 'H1' && a.nextElementSibling && a.nextElementSibling.classList.contains('sub')) a = a.nextElementSibling;
+    if (a) { const red = document.createElement('div'); red.className = 'rx-red'; red.setAttribute('aria-hidden', 'true'); a.after(red); }
+  }
+  function run() { document.querySelectorAll('#view .wrap, #find .wrap').forEach(dress); }
+  function go() { ['view', 'find'].forEach(id => { const el = document.getElementById(id); if (el) new MutationObserver(run).observe(el, { childList: true }); }); run(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+})();</script>
 </head>
 <body data-route="find">
 <!--SPLASH--><div id="splash" class="rx" role="dialog" aria-label="Welcome" hidden>
