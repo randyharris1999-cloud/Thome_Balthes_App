@@ -1584,8 +1584,9 @@ fetch('data/people.json').then(r => { if (!r.ok) throw new Error(r.status); retu
   }
   // picker
   const pk = document.getElementById('picker'), pkIn = document.getElementById('pk-input'), pkOut = document.getElementById('pk-results');
-  const SEARCH = PP.map((p, i) => ({ i, key: fold(titleName(p[0]) + ' ' + (p[1] || '') + ' ' + pyear(p[2]) + ' ' + pyear(p[3])) })).filter(s => PP[s.i][7] !== 't');
-  document.getElementById('pk-count').textContent = `${PP.filter(p => p[7] !== 't').length.toLocaleString()} people in the book`;
+  const INSCOPE = new Set([...((DATA.RG || [])[0] || []), ...((DATA.RG || [])[1] || [])]); // the people the family app has pages for
+  const SEARCH = PP.map((p, i) => ({ i, key: fold(titleName(p[0]) + ' ' + (p[1] || '') + ' ' + pyear(p[2]) + ' ' + pyear(p[3])) })).filter(s => PP[s.i][0] && PP[s.i][7] !== 't' && (!INSCOPE.size || INSCOPE.has(s.i)));
+  document.getElementById('pk-count').textContent = `${SEARCH.length.toLocaleString()} people in the book`;
   function ancCount(i) { const seen = new Set(), st = [i]; while (st.length) { const x = st.pop(); [PP[x][4], PP[x][5]].forEach(y => { if (y >= 0 && !seen.has(y)) { seen.add(y); st.push(y); } }); } return seen.size; }
   function describe(i) {
     const p = PP[i], par = [p[4], p[5]].filter(y => y >= 0).map(y => titleName(pname(y)));

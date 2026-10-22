@@ -21,3 +21,9 @@ NEW LOOK (October 2026)
 - Village tab: the 1869 plan with cross-stitched houses (family houses in red) and photographs on the house pages.
 - Photographs by Randy Harris (2016, 2018, 2023, 2024, 2025) and the early-1970s print of Nos. 109 and 110 given by
   Anna Balthes. Johann and Sofia's 50th-anniversary picture, animated with AI, is on their Life pages.
+
+TRIMMING THE DATA (run after every build)
+- python tools/trim_people.py   (from this folder). The build writes everyone from the church books into
+  data/people.json; this keeps full records only for the family (the people with pages) and cuts everyone else
+  down to what their pages show: the name, the birth and death years, and the links needed to list them as a
+  child, husband or wife. Safe to run more than once.
